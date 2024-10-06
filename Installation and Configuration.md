@@ -71,6 +71,8 @@
    
    > ```
    > /usr/share/logstash/bin/system-install /etc/logstash/startup.options
+   > ```
+   > ```
    > systemctl enable logstash
    > systemctl start logstash
    > ```
@@ -122,6 +124,8 @@
 3. **Enter this comment to make the change effect:**
    ```
    /usr/share/logstash/bin/system-install /etc/logstash2/startup.options
+   ```
+   ```
    systemctl enable logstash2
    systemctl start logstash2
    ```
