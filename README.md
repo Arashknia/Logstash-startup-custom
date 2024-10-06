@@ -1,3 +1,3 @@
 # Logstash-startup-custom
-This repository made for first startup configuration of splunk and having multiple logstash instances together.
+This repository is made for the Logstash installation and configuration with the procedure to have multiple logstash instances together.
 made for Logstash Version: 8.15.2
