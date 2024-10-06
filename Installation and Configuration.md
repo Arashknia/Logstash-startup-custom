@@ -1,4 +1,4 @@
-# Offline installation
+# **Offline installation**
 1. Download Logstash latest version or 8.15.2 .deb *[logstash-8-15-2.deb](https://www.elastic.co/downloads/past-releases/logstash-8-15-2)*
 2. install it on your Ubuntu Linux with
    > ```
@@ -25,56 +25,62 @@
 
    HINT: (if you are getting socket error, enter the command multiple times)
 
-# Configurations
+# **Configurations**
 
-**logstash.yml `(/etc/logstash/logstash.yml)`**
+* **logstash.yml `(/etc/logstash/logstash.yml)`**
    ---
    change or set these configurations: (uncomment them if they exist and then enter the correct value)
+      
    > node.name: logstash
-   >
+   
    > path.data: /var/lib/logstash
-   >
+   
    > path.config: /etc/logstash/conf.d/*.conf
-   >
+   
    > path.logs: /var/log/logstash
 
-**startup.options `(/etc/logstash/startup.options)`**
+* **startup.options `(/etc/logstash/startup.options)`**
    ---
    change or set these configurations: (uncomment them if they exist and then enter the correct value)
-   >
+      
    > LS_SETTINGS_DIR=/etc/logstash
-   >
+   
    > SERVICE_NAME="logstash"
-   >
+   
    > SERVICE_DESCRIPTION="logstash"
 
-**log4j2.properties `(/etc/logstash/log4j2.properties)`**
+* **log4j2.properties `(/etc/logstash/log4j2.properties)`**
    ---
    change or set these configurations: (uncomment them if they exist and then enter the correct value)
-   >
+         
    > name = LogstashPropertiesConfig 
-   >
+   
    > appender.rolling.fileName = /var/log/logstash/logstash-main.log
-   >
+   
    > appender.rolling.filePattern = /var/log/logstash/logstash-main-%d{yyyy-MM-dd}-%i.log.gz
-   >
+   
    > appender.rolling.strategy.action.condition.glob = logstash*
 
-**pipelines.yml `(/etc/logstash/pipelines.yml)`**
+* **pipelines.yml `(/etc/logstash/pipelines.yml)`**
    ---
+      
    > COMMENT EVERYTHING WITHIN THIS FILE
 
-**Enter this comment to make the change effect:**
-   ```
-   /usr/share/logstash/bin/system-install /etc/logstash/startup.options
-   systemctl enable logstash
-   systemctl start logstash
-   ```
+* **Enter these commands to make the change effects:**
+   ---
+   
+   > ```
+   > /usr/share/logstash/bin/system-install /etc/logstash/startup.options
+   > systemctl enable logstash
+   > systemctl start logstash
+   > ```
 
-7. check logstash logs:
-   ```
-   tail -f /var/log/logstash/logstash-main.log
-   ```
+* **Check logstash logs:**
+   ---
+   
+   > ```
+   > tail -f /var/log/logstash/logstash-main.log
+   > ```
     
 # Building a new instance of logstash
 1. **First you need to take a copy from the current stable configuration to the new one (for example logstash 2):**
